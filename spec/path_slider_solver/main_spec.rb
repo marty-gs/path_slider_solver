@@ -11,13 +11,11 @@ RSpec.describe PathSliderSolver::Main do
 
   let(:solver) { described_class.new(map) }
 
-  it 'solves' do
-    solver.solve
-
-    expect(solver.solution).to eq [1, [[2, 1], [1, 1]]]
+  it 'solves in 1 hop' do
+    expect(solver.solve).to eq [1, [[2, 1], [1, 1]]]
   end
 
-  context 'more complex map' do
+  context 'a slightly more complex map' do
     let(:map) do
       [
         [nil,    :target, nil],
@@ -27,9 +25,8 @@ RSpec.describe PathSliderSolver::Main do
       ]
     end
 
-    it 'solves' do
-      solver.solve
-      expect(solver.solution).to eq [2, [[3, 2], [3, 1], [1, 1]]]
+    it 'solves in 2 hops' do
+      expect(solver.solve).to eq [2, [[3, 2], [3, 1], [1, 1]]]
     end
   end
 
@@ -48,9 +45,8 @@ RSpec.describe PathSliderSolver::Main do
       a
     end
 
-    it 'solves' do
-      solver.solve
-      expect(solver.solution).to eq [5, [[1, 5], [5, 5], [5, 1], [6, 1], [6, 4], [3, 4]]]
+    it 'solves in 5 hops' do
+      expect(solver.solve).to eq [5, [[1, 5], [5, 5], [5, 1], [6, 1], [6, 4], [3, 4]]]
     end
   end
 end

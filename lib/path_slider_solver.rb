@@ -7,4 +7,5 @@ module PathSliderSolver
   # Your code goes here...
 end
 
+require 'path_slider_solver/map'
 require 'path_slider_solver/main'
